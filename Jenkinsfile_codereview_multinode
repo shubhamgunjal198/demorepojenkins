@@ -18,7 +18,7 @@ pipeline{
         }
         stage('code compile'){
              agent {
-          label 'Built-In'
+          label 'master_node'
           }
             steps{
             sh'mvn compile'
