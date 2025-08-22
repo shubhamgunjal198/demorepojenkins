@@ -24,7 +24,8 @@ stages{
             def CMD = mvnCMD[params.ENV]  // compile
 
             // use the variable in the mvn command 
-            git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+              git 'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
+            //git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
             sh "mvn ${CMD}"
 
             
