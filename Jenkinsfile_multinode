@@ -1,0 +1,58 @@
+
+pipeline{
+    agent none
+    tools{
+        maven'mymaven'
+    }
+    stages{
+        stage('git clone repo'){
+          agent {
+          label 'linux_node'
+          }
+        steps{
+            git branch:'Master', url:'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
+        }
+        }
+        stage('code compile'){
+          agent any
+            steps{
+            sh'mvn compile'
+        }
+        }
+        stage('code review'){
+          agent {
+          label 'linux_node'
+          }
+            steps{
+                sh 'pmd:pmd'
+            }
+            post{
+                success{
+                    recordIssues sourceCodeRetention: 'LAST_BUILD', tools: [pmdParser(pattern: '**/pmd.xml')]
+                }
+            }
+        }
+        stage('test code'){
+          agent any
+            steps{
+                sh 'mvn test'
+            }
+            post{
+                success{
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('package code'){
+          agent {
+          label 'linux_node'
+          }
+            steps{
+                sh 'mvn package'
+            }
+        }
+
+    }
+    
+    
+}
