@@ -17,9 +17,6 @@ pipeline{
         }
         }
         stage('code compile'){
-             agent {
-          label 'master_node'
-          }
             steps{
             sh'mvn compile'
         }
@@ -39,10 +36,7 @@ pipeline{
             }
         }
         stage('test code'){
-            agent {
-          label 'master'
-          }
-          
+           
             steps{
                 sh 'mvn test'
             }
