@@ -18,6 +18,8 @@ stage('Build on Dev ENV'){
   }
 steps{
    git 'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
+             //git 'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
+            //git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
    sh 'mvn package'
 }
 
