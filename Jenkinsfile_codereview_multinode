@@ -27,7 +27,7 @@ pipeline{
           label 'linux_node'
           }
             steps{
-                sh 'pmd:pmd'
+                sh 'mvn pmd:pmd'
             }
             post{
                 success{
