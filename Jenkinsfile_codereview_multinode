@@ -22,10 +22,7 @@ pipeline{
         }
         }
         stage('code review'){
-            agent {
-          label 'linux_node'
-          }
-         
+           
             steps{
                 sh 'mvn pmd:pmd'
             }
@@ -47,10 +44,7 @@ pipeline{
             }
         }
         stage('package code'){
-            agent {
-          label 'linux_node'
-          }
-         
+          
             steps{
                 sh 'mvn package'
             }
