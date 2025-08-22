@@ -10,7 +10,7 @@ pipeline{
           label 'linux_node'
           }
         steps{
-            git branch:'Master', url:'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
+            git branch:'master', url:'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
 
              //git 'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
             //git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
