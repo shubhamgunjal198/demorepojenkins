@@ -2,7 +2,7 @@
 pipeline{
     agent none
     tools{
-        maven'mymaven'
+        maven 'mymaven'
     }
     stages{
         stage('git clone repo'){
