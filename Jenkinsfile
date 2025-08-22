@@ -7,8 +7,8 @@ pipeline{
         maven'mymaven'
     }
     stages{
-        stage{
-        steps('git clone repo'){
+        stage('git clone repo'){
+        steps{
             git branch:'Master', url:'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
         }
         }
