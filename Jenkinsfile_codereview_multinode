@@ -10,7 +10,7 @@ pipeline{
           label 'linux_node'
           }
         steps{
-            git branch:'built-In Node', url:'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
+            git branch:'master', url:'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
 
              //git 'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
             //git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
@@ -18,7 +18,7 @@ pipeline{
         }
         stage('code compile'){
              agent {
-          label 'built-In Node'
+          label 'master'
           }
             steps{
             sh'mvn compile'
@@ -40,7 +40,7 @@ pipeline{
         }
         stage('test code'){
             agent {
-          label 'built-In Node'
+          label 'master'
           }
           
             steps{
