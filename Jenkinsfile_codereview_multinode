@@ -17,7 +17,7 @@ pipeline{
         }
         }
         stage('code compile'){
-          agent master
+          agent any
             steps{
             sh'mvn compile'
         }
