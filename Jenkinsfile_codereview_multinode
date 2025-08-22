@@ -17,15 +17,12 @@ pipeline{
         }
         }
         stage('code compile'){
-          agent {label 'linux_node'}
-            steps{
+         
             sh'mvn compile'
         }
         }
         stage('code review'){
-          agent {
-          label 'linux_node'
-          }
+         
             steps{
                 sh 'mvn pmd:pmd'
             }
@@ -36,9 +33,7 @@ pipeline{
             }
         }
         stage('test code'){
-           agent {
-          label 'linux_node'
-          }
+          
             steps{
                 sh 'mvn test'
             }
@@ -49,9 +44,7 @@ pipeline{
             }
         }
         stage('package code'){
-          agent {
-          label 'linux_node'
-          }
+         
             steps{
                 sh 'mvn package'
             }
