@@ -36,7 +36,9 @@ pipeline{
             }
         }
         stage('test code'){
-          agent any
+           agent {
+          label 'linux_node'
+          }
             steps{
                 sh 'mvn test'
             }
