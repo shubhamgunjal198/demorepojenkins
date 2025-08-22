@@ -17,7 +17,7 @@ stage('Build on Dev ENV'){
      expression{params.ENV == "Dev"}   // expression = condition
   }
 steps{
-   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+   git 'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
    sh 'mvn package'
 }
 
