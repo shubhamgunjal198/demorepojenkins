@@ -17,7 +17,7 @@ pipeline{
         }
         }
         stage('code compile'){
-          agent any
+          agent {label 'linux_node'}
             steps{
             sh'mvn compile'
         }
