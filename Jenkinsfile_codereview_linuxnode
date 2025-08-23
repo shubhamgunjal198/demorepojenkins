@@ -18,11 +18,7 @@ pipeline{
             steps{
             sh'mvn compile'
         }
-            post{
-             success{
-                emailext body: 'hi, this is job $job no', recipientProviders: [developers()], subject: 'Jenkins job', to: 'shubhamgunjal199@gmail.com'
-                }
-            }
+           
         }
         stage('code review'){
             steps{
