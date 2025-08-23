@@ -24,6 +24,11 @@ steps{
             //git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
    sh 'mvn package'
 }
+post{
+  success{
+emailext body: 'hi, this is job $job no', recipientProviders: [developers()], subject: 'Jenkins job', to: 'shubhamgunjal199@gmail.com'
+  }
+}
 
 }
 
