@@ -43,6 +43,12 @@ pipeline{
             steps{
                 sh 'mvn package'
             }
+            post{
+             success{
+                emailext body: 'hi, this is job $job no', recipientProviders: [developers()], subject: 'Jenkins job', to: 'shubhamgunjal199@gmail.com'
+                }
+            }
+
         }
 
     }
