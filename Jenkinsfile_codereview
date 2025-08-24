@@ -5,6 +5,17 @@ pipeline{
         maven'mymaven'
     }
     stages{
+         stage('Deploy to Tomcat 10') {
+            steps {
+                sh '''
+                WAR_FILE=target/myapp.war
+                TOMCAT_HOME=/opt/tomcat10
+                cp $WAR_FILE $TOMCAT_HOME/webapps/
+                '''
+            }
+        }
+
+
         stage ('git clone repo'){
         steps{
             git branch:'master', url:'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
