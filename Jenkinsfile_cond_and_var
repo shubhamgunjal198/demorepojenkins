@@ -1,38 +1,41 @@
 pipeline{
 
+tools{
+  maven 'mymaven'
+}
+
 agent any 
 
-tools{
- maven 'mymaven'
-}
 parameters{
-   choice(name: 'ENV', choices: ["Dev","QA"])
+    choice(name: 'ENV', choices: ["","Dev","QA"])
 }
 
 stages{
 
-   stage('build code in your ENV'){
-     steps{
-           script{
-                // define a variable in the script which is of type MAP 
-            def mvnCMD = [
-                  Dev : 'compile',
-                  QA : 'package'            
-            ]
+stage('Build on Dev ENV'){
+  when{  // when should this stage steps be exeucted 
+     expression{params.ENV == "Dev"}   // expression = condition
+  }
+steps{
+   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+   sh 'mvn package'
+}
 
-          // a variable storing another variable as value
-            def CMD = mvnCMD[params.ENV]  // compile
+}
 
-            // use the variable in the mvn command 
-              git 'https://github.com/shubhamgunjal198/DevOpsClassCodes.git'
-            //git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
-            sh "mvn ${CMD}"
+stage('Test on QA ENV'){
 
-            
+when{
+   expression{params.ENV == "QA"}   // expression = condition
+}
 
-           }   
-     }
-   }
+ 
+steps{
+   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+   sh 'mvn test'
+}
+
+}
 
 }
 
