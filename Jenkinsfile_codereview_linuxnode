@@ -51,7 +51,7 @@ pipeline{
             }
             post{
              success{
-                emailext body: 'hi, this job is run smoothly.Ok!', recipientProviders: [developers()], subject: 'Jenkins job', to: 'shubhamgunjal199@gmail.com'
+                emailext body: 'hi, this job is run smoothly', recipientProviders: [developers()], subject: 'Jenkins job', to: 'shubhamgunjal199@gmail.com'
                 }
             }
 
