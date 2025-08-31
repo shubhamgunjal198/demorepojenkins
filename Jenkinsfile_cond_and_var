@@ -13,7 +13,7 @@ parameters{
 stages{
 
 stage('Build on Dev ENV'){
-  when{  // when should this stage steps be exeucted 
+  when{  // when should this stage steps be exeucted........
      expression{params.ENV == "Dev"}   // expression = condition
   }
 steps{
